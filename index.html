@@ -3,74 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QIDS-SR16 Qualification Form</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
-        form { display: inline-block; text-align: left; }
-        .question { margin-bottom: 15px; }
-        .result { font-weight: bold; margin-top: 20px; }
-    </style>
+    <title>Expel QIDS-SR16 Qualification Form</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>QIDS-SR16 Depression Assessment</h2>
-    <p>Fill out the form below. A total score of 13 or higher is required for eligibility.</p>
-    <form id="qidsForm">
-        <div id="questions"></div>
-        <button type="button" onclick="calculateScore()">Submit</button>
-    </form>
-    <p class="result" id="result"></p>
-    
-    <script>
-        const questions = [
-            { text: "Falling Asleep", options: [0, 1, 2, 3] },
-            { text: "Sleep During the Night", options: [0, 1, 2, 3] },
-            { text: "Waking Up Too Early", options: [0, 1, 2, 3] },
-            { text: "Sleeping Too Much", options: [0, 1, 2, 3] },
-            { text: "Feeling Sad", options: [0, 1, 2, 3] },
-            { text: "Decreased Appetite", options: [0, 1, 2, 3] },
-            { text: "Increased Appetite", options: [0, 1, 2, 3] },
-            { text: "Decreased Weight", options: [0, 1, 2, 3] },
-            { text: "Increased Weight", options: [0, 1, 2, 3] },
-            { text: "Concentration/Decision Making", options: [0, 1, 2, 3] },
-            { text: "View of Myself", options: [0, 1, 2, 3] },
-            { text: "Thoughts of Death or Suicide", options: [0, 1, 2, 3] },
-            { text: "General Interest", options: [0, 1, 2, 3] },
-            { text: "Energy Level", options: [0, 1, 2, 3] },
-            { text: "Feeling Slowed Down", options: [0, 1, 2, 3] },
-            { text: "Feeling Restless", options: [0, 1, 2, 3] }
-        ];
+    <div class="container">
+        <h2>Expel QIDS-SR16 Depression Assessment</h2>
+        <p>Please fill out the form below. A total score of 13 or higher is required for eligibility.</p>
+        <form id="qidsForm">
+            <div id="questions"></div>
 
-        const formContainer = document.getElementById("questions");
+            <div class="additional-question">
+                <label for="expel">Are you Expel?:</label>
+                <select id="expel" name="expel">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
 
-        questions.forEach((q, index) => {
-            const div = document.createElement("div");
-            div.classList.add("question");
-            div.innerHTML = `<label>${q.text}:</label> ` +
-                q.options.map(opt => `<input type='radio' name='q${index}' value='${opt}'>${opt}`).join(" ");
-            formContainer.appendChild(div);
-        });
+            <div class="additional-question">
+                <label for="otherConditions">Do you have any other conditions (e.g., anxiety, bipolar, etc.)?:</label>
+                <select id="otherConditions" name="otherConditions">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
 
-        function calculateScore() {
-            let score = 0;
-            let highestSleep = 0, highestAppetite = 0, highestPsychomotor = 0;
+            <div class="additional-question">
+                <label for="medications">Are you currently on any medications for mental health?:</label>
+                <select id="medications" name="medications">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
 
-            questions.forEach((q, index) => {
-                const selected = document.querySelector(`input[name='q${index}']:checked`);
-                if (!selected) {
-                    document.getElementById("result").innerText = "Please answer all questions.";
-                    return;
-                }
-                const value = parseInt(selected.value);
+            <div class="additional-question">
+                <label for="therapy">Have you ever undergone therapy or counseling?:</label>
+                <select id="therapy" name="therapy">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
 
-                if (index < 4) highestSleep = Math.max(highestSleep, value);
-                else if (index >= 5 && index <= 8) highestAppetite = Math.max(highestAppetite, value);
-                else if (index === 15 || index === 16) highestPsychomotor = Math.max(highestPsychomotor, value);
-                else score += value;
-            });
-
-            score += highestSleep + highestAppetite + highestPsychomotor;
-            document.getElementById("result").innerText = `Total Score: ${score}. ` + (score >= 13 ? "Eligible for the study!" : "Not eligible.");
-        }
-    </script>
+            <button type="button" onclick="calculateScore()">Submit</button>
+        </form>
+        <p class="result" id="result"></p>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
