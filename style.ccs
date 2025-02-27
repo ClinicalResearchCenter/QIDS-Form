@@ -1,7 +1,7 @@
 /* style.css */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f8ff; /* Light blue background */
+    background-color: #f0f8ff; /* Light blue */
     color: #333;
     margin: 0;
     padding: 0;
@@ -52,6 +52,11 @@ select {
     background: #f0f8ff;
     color: #333;
     font-size: 16px;
+    outline: none;
+}
+
+select:focus {
+    border-color: #003080;
 }
 
 button {
@@ -64,10 +69,11 @@ button {
     cursor: pointer;
     transition: 0.3s;
     margin-top: 10px;
+    width: 100%;
 }
 
 button:hover {
-    background-color: #003080; /* Slightly darker blue */
+    background-color: #003080;
 }
 
 .result {
@@ -75,4 +81,11 @@ button:hover {
     font-size: 18px;
     font-weight: bold;
     color: #0047ab;
+}
+
+/* Error Message Styles */
+.error-message {
+    color: red;
+    font-size: 14px;
+    display: none;
 }
