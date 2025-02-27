@@ -14,38 +14,46 @@
             <div id="questions"></div>
 
             <div class="additional-question">
-                <label for="expel">Are you Expel?:</label>
-                <select id="expel" name="expel">
+                <label for="expel">Are you Expel?</label>
+                <select id="expel" name="expel" required>
+                    <option value="" disabled selected>Select an option</option>
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
                 </select>
+                <small class="error-message" id="expelError"></small>
             </div>
 
             <div class="additional-question">
-                <label for="otherConditions">Do you have any other conditions (e.g., anxiety, bipolar, etc.)?:</label>
-                <select id="otherConditions" name="otherConditions">
+                <label for="otherConditions">Do you have any other conditions (e.g., anxiety, bipolar, etc.)?</label>
+                <select id="otherConditions" name="otherConditions" required>
+                    <option value="" disabled selected>Select an option</option>
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
                 </select>
+                <small class="error-message" id="conditionsError"></small>
             </div>
 
             <div class="additional-question">
-                <label for="medications">Are you currently on any medications for mental health?:</label>
-                <select id="medications" name="medications">
+                <label for="medications">Are you currently on any medications for mental health?</label>
+                <select id="medications" name="medications" required>
+                    <option value="" disabled selected>Select an option</option>
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
                 </select>
+                <small class="error-message" id="medicationsError"></small>
             </div>
 
             <div class="additional-question">
-                <label for="therapy">Have you ever undergone therapy or counseling?:</label>
-                <select id="therapy" name="therapy">
+                <label for="therapy">Have you ever undergone therapy or counseling?</label>
+                <select id="therapy" name="therapy" required>
+                    <option value="" disabled selected>Select an option</option>
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
                 </select>
+                <small class="error-message" id="therapyError"></small>
             </div>
 
-            <button type="button" onclick="calculateScore()">Submit</button>
+            <button type="button" onclick="validateForm()">Submit</button>
         </form>
         <p class="result" id="result"></p>
     </div>
