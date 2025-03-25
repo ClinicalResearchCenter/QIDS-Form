@@ -1,100 +1,113 @@
-/* General Styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f8ff; /* Light blue */
+    background-color: #f0f8ff;
     color: #333;
     margin: 0;
     padding: 0;
 }
 
-/* Form Container */
 .container {
-    max-width: 700px;
-    background: white;
-    margin: 50px auto;
-    padding: 30px;
+    max-width: 800px;
+    margin: 30px auto;
+    background-color: #fff;
+    padding: 25px;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #0047ab;
+    margin-bottom: 10px;
     text-align: center;
 }
 
-/* Headings */
-h2 {
-    color: #0047ab; /* Deep blue */
-    margin-bottom: 15px;
-}
-
-/* Paragraph */
 p {
     font-size: 16px;
-    line-height: 1.5;
-    color: #555;
+    line-height: 1.6;
 }
 
-/* Form Styling */
-form {
-    margin-top: 20px;
-    text-align: left;
-}
-
-/* Individual Question Block */
-.question {
+h3 {
+    color: #003080;
+    border-bottom: 2px solid #d0e4ff;
+    padding-bottom: 4px;
+    margin-top: 30px;
     margin-bottom: 15px;
 }
 
-/* Labels */
-label {
+.question {
+    margin-bottom: 20px;
+    padding: 12px;
+    border-left: 4px solid #cfe2ff;
+    background-color: #f7fbff;
+    border-radius: 5px;
+}
+
+.question p {
+    margin-bottom: 8px;
     font-weight: bold;
-    color: #0047ab;
+    color: #004085;
+}
+
+label {
     display: block;
-    margin-bottom: 5px;
-}
-
-/* Dropdowns */
-select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #0047ab;
-    border-radius: 5px;
-    background: #f0f8ff;
-    color: #333;
-    font-size: 16px;
-    outline: none;
-}
-
-select:focus {
-    border-color: #003080;
-}
-
-/* Submit Button */
-button {
-    background-color: #0047ab;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
+    margin-bottom: 6px;
     cursor: pointer;
-    transition: 0.3s;
-    margin-top: 15px;
+    font-size: 15px;
+}
+
+input[type="radio"] {
+    margin-right: 8px;
+    transform: scale(1.2);
+}
+
+button {
+    display: block;
     width: 100%;
+    padding: 12px;
+    background-color: #0047ab;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
 }
 
 button:hover {
     background-color: #003080;
 }
 
-/* Result Styling */
 .result {
     margin-top: 20px;
     font-size: 18px;
     font-weight: bold;
     color: #0047ab;
+    text-align: center;
 }
 
-/* Error Messages */
-.error-message {
-    color: red;
-    font-size: 14px;
-    display: none;
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 15px;
+    }
 }
