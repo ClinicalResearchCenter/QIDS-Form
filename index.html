@@ -1,101 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QIDS-SR16 Phone-Friendly Assessment</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QIDS-SR16 Phone-Friendly Assessment</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<div class="container">
+  <div class="container">
     <h2>QIDS-SR16 Depression Assessment</h2>
-    <p><strong>Instructions:</strong> Ask the client each question and select their response. Use the highest score from Q1-4, Q6-9, and Q15-16.</p>
+    <p><strong>Instructions:</strong> Ask the client each question and select their response. Use the highest score from Q1–4, Q6–9, and Q15–16.</p>
 
     <form id="qidsForm">
-        <h3>Sleep (Pick Highest from Q1–4)</h3>
-        <!-- Q1 -->
-        <div class="question">
-            <p><strong>1. Falling Asleep</strong></p>
-            <label><input type="radio" name="q1" value="0"> 0 - Never takes longer than 30 mins</label><br>
-            <label><input type="radio" name="q1" value="1"> 1 - Takes 30+ mins, less than half the time</label><br>
-            <label><input type="radio" name="q1" value="2"> 2 - Takes 30+ mins, more than half the time</label><br>
-            <label><input type="radio" name="q1" value="3"> 3 - Takes more than 60 mins, more than half the time</label>
-        </div>
-        <!-- Q2 -->
-        <div class="question">
-            <p><strong>2. Sleep During the Night</strong></p>
-            <label><input type="radio" name="q2" value="0"> 0 - No waking</label><br>
-            <label><input type="radio" name="q2" value="1"> 1 - Restless sleep, brief awakenings</label><br>
-            <label><input type="radio" name="q2" value="2"> 2 - Wakes once but returns to sleep easily</label><br>
-            <label><input type="radio" name="q2" value="3"> 3 - Wakes more than once, stays up 20+ mins</label>
-        </div>
-        <!-- Q3 -->
-        <div class="question">
-            <p><strong>3. Waking Up Too Early</strong></p>
-            <label><input type="radio" name="q3" value="0"> 0 - Awakens within 30 mins of need</label><br>
-            <label><input type="radio" name="q3" value="1"> 1 - Awakens 30+ mins early more than half the time</label><br>
-            <label><input type="radio" name="q3" value="2"> 2 - Awakens 1+ hour early but returns to sleep</label><br>
-            <label><input type="radio" name="q3" value="3"> 3 - Awakens 1+ hour early, can't return to sleep</label>
-        </div>
-        <!-- Q4 -->
-        <div class="question">
-            <p><strong>4. Sleeping Too Much</strong></p>
-            <label><input type="radio" name="q4" value="0"> 0 - Sleeps 7–8 hours</label><br>
-            <label><input type="radio" name="q4" value="1"> 1 - Sleeps up to 10 hrs</label><br>
-            <label><input type="radio" name="q4" value="2"> 2 - Sleeps up to 12 hrs</label><br>
-            <label><input type="radio" name="q4" value="3"> 3 - Sleeps 12+ hrs</label>
-        </div>
 
-        <h3>Mood</h3>
-        <!-- Q5 -->
-        <div class="question">
-            <p><strong>5. Feeling Sad</strong></p>
-            <label><input type="radio" name="q5" value="0"> 0 - Not sad</label><br>
-            <label><input type="radio" name="q5" value="1"> 1 - Sad less than half the time</label><br>
-            <label><input type="radio" name="q5" value="2"> 2 - Sad more than half the time</label><br>
-            <label><input type="radio" name="q5" value="3"> 3 - Sad nearly all the time</label>
-        </div>
+      <!-- Sleep -->
+      <h3>Sleep (Pick Highest from Q1–4)</h3>
+      <div class="question">
+        <p><strong>1. Falling Asleep</strong></p>
+        <label><input type="radio" name="q1" value="0"> 0 - Never takes longer than 30 mins</label><br>
+        <label><input type="radio" name="q1" value="1"> 1 - Takes 30+ mins, less than half the time</label><br>
+        <label><input type="radio" name="q1" value="2"> 2 - Takes 30+ mins, more than half the time</label><br>
+        <label><input type="radio" name="q1" value="3"> 3 - Takes more than 60 mins, more than half the time</label>
+      </div>
 
-        <h3>Appetite / Weight (Pick Highest from Q6–9)</h3>
-        <!-- Q6 -->
-        <div class="question">
-            <p><strong>6. Decreased Appetite</strong></p>
-            <label><input type="radio" name="q6" value="0"> 0 - No change</label><br>
-            <label><input type="radio" name="q6" value="1"> 1 - Eat somewhat less</label><br>
-            <label><input type="radio" name="q6" value="2"> 2 - Eat much less, only with effort</label><br>
-            <label><input type="radio" name="q6" value="3"> 3 - Rarely eat, only with persuasion</label>
-        </div>
-        <!-- Q7 -->
-        <div class="question">
-            <p><strong>7. Increased Appetite</strong></p>
-            <label><input type="radio" name="q7" value="0"> 0 - No change</label><br>
-            <label><input type="radio" name="q7" value="1"> 1 - Feel a need to eat more</label><br>
-            <label><input type="radio" name="q7" value="2"> 2 - Eat more and more often</label><br>
-            <label><input type="radio" name="q7" value="3"> 3 - Feel driven to overeat all the time</label>
-        </div>
-        <!-- Q8 -->
-        <div class="question">
-            <p><strong>8. Decreased Weight (last 2 weeks)</strong></p>
-            <label><input type="radio" name="q8" value="0"> 0 - No change</label><br>
-            <label><input type="radio" name="q8" value="1"> 1 - Slight weight loss</label><br>
-            <label><input type="radio" name="q8" value="2"> 2 - Lost 2+ lbs</label><br>
-            <label><input type="radio" name="q8" value="3"> 3 - Lost 5+ lbs</label>
-        </div>
-        <!-- Q9 -->
-        <div class="question">
-            <p><strong>9. Increased Weight (last 2 weeks)</strong></p>
-            <label><input type="radio" name="q9" value="0"> 0 - No change</label><br>
-            <label><input type="radio" name="q9" value="1"> 1 - Slight weight gain</label><br>
-            <label><input type="radio" name="q9" value="2"> 2 - Gained 2+ lbs</label><br>
-            <label><input type="radio" name="q9" value="3"> 3 - Gained 5+ lbs</label>
-        </div>
+      <div class="question">
+        <p><strong>2. Sleep During the Night</strong></p>
+        <label><input type="radio" name="q2" value="0"> 0 - No waking</label><br>
+        <label><input type="radio" name="q2" value="1"> 1 - Restless sleep, brief awakenings</label><br>
+        <label><input type="radio" name="q2" value="2"> 2 - Wakes once but returns to sleep easily</label><br>
+        <label><input type="radio" name="q2" value="3"> 3 - Wakes more than once, stays up 20+ mins</label>
+      </div>
 
-        <!-- Additional questions (Q10–Q16) will be added next -->
+      <div class="question">
+        <p><strong>3. Waking Up Too Early</strong></p>
+        <label><input type="radio" name="q3" value="0"> 0 - Awakens within 30 mins of need</label><br>
+        <label><input type="radio" name="q3" value="1"> 1 - Awakens 30+ mins early more than half the time</label><br>
+        <label><input type="radio" name="q3" value="2"> 2 - Awakens 1+ hour early but returns to sleep</label><br>
+        <label><input type="radio" name="q3" value="3"> 3 - Awakens 1+ hour early, can't return to sleep</label>
+      </div>
 
-        <button type="submit">Submit</button>
+      <div class="question">
+        <p><strong>4. Sleeping Too Much</strong></p>
+        <label><input type="radio" name="q4" value="0"> 0 - Sleeps 7–8 hours</label><br>
+        <label><input type="radio" name="q4" value="1"> 1 - Sleeps up to 10 hrs</label><br>
+        <label><input type="radio" name="q4" value="2"> 2 - Sleeps up to 12 hrs</label><br>
+        <label><input type="radio" name="q4" value="3"> 3 - Sleeps 12+ hrs</label>
+      </div>
+
+      <!-- Mood -->
+      <h3>Mood</h3>
+      <div class="question">
+        <p><strong>5. Feeling Sad</strong></p>
+        <label><input type="radio" name="q5" value="0"> 0 - Not sad</label><br>
+        <label><input type="radio" name="q5" value="1"> 1 - Sad less than half the time</label><br>
+        <label><input type="radio" name="q5" value="2"> 2 - Sad more than half the time</label><br>
+        <label><input type="radio" name="q5" value="3"> 3 - Sad nearly all the time</label>
+      </div>
+
+      <!-- Appetite/Weight -->
+      <h3>Appetite / Weight (Pick Highest from Q6–9)</h3>
+      <div class="question">
+        <p><strong>6. Decreased Appetite</strong></p>
+        <label><input type="radio" name="q6" value="0"> 0 - No change</label><br>
+        <label><input type="radio" name="q6" value="1"> 1 - Eat somewhat less</label><br>
+        <label><input type="radio" name="q6" value="2"> 2 - Eat much less, only with effort</label><br>
+        <label><input type="radio" name="q6" value="3"> 3 - Rarely eat, only with persuasion</label>
+      </div>
+
+      <div class="question">
+        <p><strong>7. Increased Appetite</strong></p>
+        <label><input type="radio" name="q7" value="0"> 0 - No change</label><br>
+        <label><input type="radio" name="q7" value="1"> 1 - Feel a need to eat more</label><br>
+        <label><input type="radio" name="q7" value="2"> 2 - Eat more and more often</label><br>
+        <label><input type="radio" name="q7" value="3"> 3 - Feel driven to overeat all the time</label>
+      </div>
+
+      <div class="question">
+        <p><strong>8. Decreased Weight (last 2 weeks)</strong></p>
+        <label><input type="radio" name="q8" value="0"> 0 - No change</label><br>
+        <label><input type="radio" name="q8" value="1"> 1 - Slight weight loss</label><br>
+        <label><input type="radio" name="q8" value="2"> 2 - Lost 2+ lbs</label><br>
+        <label><input type="radio" name="q8" value="3"> 3 - Lost 5+ lbs</label>
+      </div>
+
+      <div class="question">
+        <p><strong>9. Increased Weight (last 2 weeks)</strong></p>
+        <label><input type="radio" name="q9" value="0"> 0 - No change</label><br>
+        <label><input type="radio" name="q9" value="1"> 1 - Slight weight gain</label><br>
+        <label><input type="radio" name="q9" value="2"> 2 - Gained 2+ lbs</label><br>
+        <label><input type="radio" name="q9" value="3"> 3 - Gained 5+ lbs</label>
+      </div>
+
+      <!-- Cognitive & Emotional -->
+      <h3>Cognitive & Emotional Symptoms</h3>
+      <div class="question">
+        <p><strong>10. Concentration / Decision Making</strong></p>
+        <label><input type="radio" name="q10" value="0"> 0 - No change</label><br>
+        <label><input type="radio" name="q10" value="1"> 1 - Occasionally indecisive or distracted</label><br>
+        <label><input type="radio" name="q10" value="2"> 2 - Frequent difficulty focusing or deciding</label><br>
+        <label><input type="radio" name="q10" value="3"> 3 - Cannot concentrate or decide at all</label>
+      </div>
+
+      <div class="question">
+        <p><strong>11. View of Myself</strong></p>
+        <label><input type="radio" name="q11" value="0"> 0 - Feel equal to others</label><br>
+        <label><input type="radio" name="q11" value="1"> 1 - More self-blaming than usual</label><br>
+        <label><input type="radio" name="q11" value="2"> 2 - Feel I cause problems for others</label><br>
+        <label><input type="radio" name="q11" value="3"> 3 - Constantly focused on my defects</label>
+      </div>
+
+      <div class="question">
+        <p><strong>12. Thoughts of Death or Suicide</strong></p>
+        <label><input type="radio" name="q12" value="0"> 0 - No thoughts</label><br>
+        <label><input type="radio" name="q12" value="1"> 1 - Life feels empty</label><br>
+        <label><input type="radio" name="q12" value="2"> 2 - Occasional suicidal thoughts</label><br>
+        <label><input type="radio" name="q12" value="3"> 3 - Frequent suicidal thoughts or plans</label>
+      </div>
+
+      <div class="question">
+        <p><strong>13. General Interest</strong></p>
+        <label><input type="radio" name="q13" value="0"> 0 - No change in interest</label><br>
+        <label><input type="radio" name="q13" value="1"> 1 - Less interested</label><br>
+        <label><input type="radio" name="q13" value="2"> 2 - Interest in only 1–2 activities</label><br>
+        <label><input type="radio" name="q13" value="3"> 3 - No interest</label>
+      </div>
+
+      <div class="question">
+        <p><strong>14. Energy Level</strong></p>
+        <label><input type="radio" name="q14" value="0"> 0 - Normal energy</label><br>
+        <label><input type="radio" name="q14" value="1"> 1 - Tired more easily</label><br>
+        <label><input type="radio" name="q14" value="2"> 2 - Hard to start/finish daily activities</label><br>
+        <label><input type="radio" name="q14" value="3"> 3 - Can't do daily activities</label>
+      </div>
+
+      <!-- Psychomotor -->
+      <h3>Psychomotor (Pick Highest from Q15–Q16)</h3>
+      <div class="question">
+        <p><strong>15. Feeling Slowed Down</strong></p>
+        <label><input type="radio" name="q15" value="0"> 0 - Normal speed</label><br>
+        <label><input type="radio" name="q15" value="1"> 1 - Thinking slower / flat tone</label><br>
+        <label><input type="radio" name="q15" value="2"> 2 - Noticeable slow responses</label><br>
+        <label><input type="radio" name="q15" value="3"> 3 - Extremely slow or effortful</label>
+      </div>
+
+      <div class="question">
+        <p><strong>16. Feeling Restless</strong></p>
+        <label><input type="radio" name="q16" value="0"> 0 - No restlessness</label><br>
+        <label><input type="radio" name="q16" value="1"> 1 - Fidgety or shifting</label><br>
+        <label><input type="radio" name="q16" value="2"> 2 - Need to move / restless</label><br>
+        <label><input type="radio" name="q16" value="3"> 3 - Can’t stay seated</label>
+      </div>
+
+      <button type="submit">Submit</button>
     </form>
+
     <p class="result" id="result"></p>
-</div>
-<script src="script.js"></script>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
