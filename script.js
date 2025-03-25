@@ -1,55 +1,44 @@
-// script.js
+document.getElementById("qidsForm").addEventListener("submit", function (e) {
+    e.preventDefault();
 
-document.getElementById("qidsForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent form submission
-
-    let isValid = true;
     let totalScore = 0;
-    
-    // Reset previous error messages
-    document.querySelectorAll(".error-message").forEach(msg => msg.style.display = "none");
 
-    // List of question names corresponding to form elements
-    const questionNames = [
-        "fallingAsleep", "sleepDuringNight", "wakingEarly", "sleepingTooMuch",
-        "feelingSad", "decreasedAppetite", "increasedAppetite", "decreasedWeight",
-        "increasedWeight", "concentration"
-        // Add more names if needed
-    ];
+    // Get highest score from Q1–Q4 (Sleep)
+    const sleepScores = ["q1", "q2", "q3", "q4"].map(q => getScore(q));
+    const sleepScore = Math.max(...sleepScores);
 
-    // Validate each field and calculate score
-    questionNames.forEach(name => {
-        const selectElement = document.querySelector(`select[name=${name}]`);
-        if (!selectElement.value) {
-            let errorElement = document.createElement("small");
-            errorElement.className = "error-message";
-            errorElement.textContent = "This field is required.";
-            selectElement.parentNode.appendChild(errorElement);
-            errorElement.style.display = "block";
-            isValid = false;
-        } else {
-            totalScore += parseInt(selectElement.value);
-        }
-    });
+    // Q5 - Sad mood
+    const sadMood = getScore("q5");
 
-    if (!isValid) {
-        return; // Stop execution if form is invalid
-    }
+    // Get highest score from Q6–Q9 (Appetite/Weight)
+    const appetiteScores = ["q6", "q7", "q8", "q9"].map(q => getScore(q));
+    const appetiteScore = Math.max(...appetiteScores);
 
-    // Determine depression severity based on total score
-    let severity = "";
-    if (totalScore >= 0 && totalScore <= 5) {
-        severity = "No Depression";
-    } else if (totalScore >= 6 && totalScore <= 10) {
-        severity = "Mild Depression";
-    } else if (totalScore >= 11 && totalScore <= 15) {
-        severity = "Moderate Depression";
-    } else if (totalScore >= 16 && totalScore <= 20) {
-        severity = "Severe Depression";
-    } else if (totalScore >= 21 && totalScore <= 27) {
-        severity = "Very Severe Depression";
-    }
+    // To be added later:
+    // const psychomotorScores = ["q15", "q16"].map(q => getScore(q));
+    // const psychomotorScore = Math.max(...psychomotorScores);
 
-    // Display the result
-    document.getElementById("result").textContent = `Your Total Score: ${totalScore} (${severity})`;
+    // Sum up available scores
+    totalScore = sleepScore + sadMood + appetiteScore;
+
+    // Display severity based on total
+    const severity = getSeverity(totalScore);
+
+    document.getElementById("result").textContent =
+        `Total Score: ${totalScore} (${severity})`;
 });
+
+// Helper to get score from radio buttons
+function getScore(questionName) {
+    const selected = document.querySelector(`input[name="${questionName}"]:checked`);
+    return selected ? parseInt(selected.value) : 0;
+}
+
+// Scoring interpretation
+function getSeverity(score) {
+    if (score <= 5) return "No Depression";
+    if (score <= 10) return "Mild Depression";
+    if (score <= 15) return "Moderate Depression";
+    if (score <= 20) return "Severe Depression";
+    return "Very Severe Depression";
+}
