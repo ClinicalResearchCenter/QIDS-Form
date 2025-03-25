@@ -3,38 +3,46 @@ document.getElementById("qidsForm").addEventListener("submit", function (e) {
 
     let totalScore = 0;
 
-    // Get highest score from Q1–Q4 (Sleep)
-    const sleepScores = ["q1", "q2", "q3", "q4"].map(q => getScore(q));
-    const sleepScore = Math.max(...sleepScores);
+    // Sleep: highest of Q1–Q4
+    const sleep = getMaxScore(["q1", "q2", "q3", "q4"]);
 
-    // Q5 - Sad mood
-    const sadMood = getScore("q5");
+    // Q5: Sad Mood
+    const sad = getScore("q5");
 
-    // Get highest score from Q6–Q9 (Appetite/Weight)
-    const appetiteScores = ["q6", "q7", "q8", "q9"].map(q => getScore(q));
-    const appetiteScore = Math.max(...appetiteScores);
+    // Appetite/Weight: highest of Q6–Q9
+    const appetite = getMaxScore(["q6", "q7", "q8", "q9"]);
 
-    // To be added later:
-    // const psychomotorScores = ["q15", "q16"].map(q => getScore(q));
-    // const psychomotorScore = Math.max(...psychomotorScores);
+    // Q10–Q14: Direct sum
+    const q10 = getScore("q10");
+    const q11 = getScore("q11");
+    const q12 = getScore("q12");
+    const q13 = getScore("q13");
+    const q14 = getScore("q14");
 
-    // Sum up available scores
-    totalScore = sleepScore + sadMood + appetiteScore;
+    // Psychomotor: highest of Q15–Q16
+    const psychomotor = getMaxScore(["q15", "q16"]);
 
-    // Display severity based on total
+    // Final QIDS-SR16 total
+    totalScore = sleep + sad + appetite + q10 + q11 + q12 + q13 + q14 + psychomotor;
+
     const severity = getSeverity(totalScore);
 
     document.getElementById("result").textContent =
         `Total Score: ${totalScore} (${severity})`;
 });
 
-// Helper to get score from radio buttons
-function getScore(questionName) {
-    const selected = document.querySelector(`input[name="${questionName}"]:checked`);
+// Get score for a single question
+function getScore(name) {
+    const selected = document.querySelector(`input[name="${name}"]:checked`);
     return selected ? parseInt(selected.value) : 0;
 }
 
-// Scoring interpretation
+// Get highest score in a group
+function getMaxScore(names) {
+    return Math.max(...names.map(getScore));
+}
+
+// Interpret severity
 function getSeverity(score) {
     if (score <= 5) return "No Depression";
     if (score <= 10) return "Mild Depression";
